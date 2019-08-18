@@ -2,6 +2,7 @@ import 'package:flutter_web/material.dart';
 import '../model/models.dart';
 import 'menu_item.dart';
 import 'menu_separator.dart';
+import 'dart:html' as html;
 
 class Menu extends StatefulWidget {
   @override
@@ -24,28 +25,28 @@ class _MenuState extends State<Menu> {
         label: "Articles",
         labelColor: Colors.white,
         hoverColor: Colors.green,
-        onTap: () => print("Artciles"),
+        onTap: _openArticlesPage,
         onHover: (isHovered) => _onMenuItemHovered("articles", isHovered),
       ),
       "github": Section(
         label: "Github",
         labelColor: Colors.white,
         hoverColor: Colors.green,
-        onTap: () => print("Artciles"),
+        onTap: () => _openLink("https://github.com/husaynhakeem"),
         onHover: (isHovered) => _onMenuItemHovered("github", isHovered),
       ),
       "twitter": Section(
         label: "Twitter",
         labelColor: Colors.white,
         hoverColor: Colors.green,
-        onTap: () => print("Artciles"),
+        onTap: () => _openLink("https://twitter.com/HusaynaHakeem"),
         onHover: (isHovered) => _onMenuItemHovered("twitter", isHovered),
       ),
       "linkedin": Section(
         label: "LinkedIn",
         labelColor: Colors.white,
         hoverColor: Colors.green,
-        onTap: () => print("Artciles"),
+        onTap: () => _openLink("https://www.linkedin.com/in/husaynhakeem/"),
         onHover: (isHovered) => _onMenuItemHovered("linkedin", isHovered),
       ),
     });
@@ -57,6 +58,14 @@ class _MenuState extends State<Menu> {
       _menuItems[key]?.isHovered = isHovered;
       _hoveredItemKey = key;
     });
+  }
+
+  void _openLink(final String link) {
+    html.window.open(link, link);
+  }
+
+  void _openArticlesPage() {
+
   }
 
   @override
