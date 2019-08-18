@@ -7,16 +7,27 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
+          color: Colors.black87,
           image: DecorationImage(
             image: AssetImage("assetName"),
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          children: <Widget>[
-            Header(),
-            Menu(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Header(),
+                  Menu(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
