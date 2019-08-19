@@ -9,27 +9,63 @@ class ArticleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isSmallScreen = MediaQuery.of(context).size.width <= 600;
+    if (isSmallScreen) {
+      return _smallArticleTile();
+    } else {
+      return _defaultArticleTile();
+    }
+  }
+
+  Widget _defaultArticleTile() {
     return ListTile(
       contentPadding: EdgeInsets.all(0),
-      leading: Text(
-        _formatDate(article.publishDate),
-        style: TextStyle(
-          color: Colors.white,
-        ),
-      ),
-      title: Text(
-        article.title,
-        style: TextStyle(
-          color: Colors.white,
-        ),
-      ),
-      subtitle: Text(
-        article.summary,
-        style: TextStyle(
-          color: Colors.white,
-        ),
-      ),
+      leading: _articlePublishDate(),
+      title: _articleTitle(),
+      subtitle: _articleSummary(),
       onTap: () => _openLink(article.url),
+    );
+  }
+
+  Widget _smallArticleTile() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _articlePublishDate(),
+        ListTile(
+          contentPadding: EdgeInsets.all(0),
+          title: _articleTitle(),
+          subtitle: _articleSummary(),
+          onTap: () => _openLink(article.url),
+        ),
+      ],
+    );
+  }
+
+  Widget _articlePublishDate() {
+    return Text(
+      _formatDate(article.publishDate),
+      style: TextStyle(
+        color: Colors.white,
+      ),
+    );
+  }
+
+  Widget _articleTitle() {
+    return Text(
+      article.title,
+      style: TextStyle(
+        color: Colors.white,
+      ),
+    );
+  }
+
+  Widget _articleSummary() {
+    return Text(
+      article.summary,
+      style: TextStyle(
+        color: Colors.white,
+      ),
     );
   }
 
