@@ -15,16 +15,12 @@ class HomePage extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
+          child: Column(            
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  Header(),
-                  Menu(),
-                ],
+              Header(),
+              Expanded(
+                child: Menu(),
               ),
             ],
           ),

@@ -5,7 +5,7 @@ class Section {
   final Color labelColor;
   final Color hoverColor;
   final Function onTap;
-  final Function(bool) onHover;
+  final Function(int, bool) onHover;
   bool isHovered = false;
 
   Section({

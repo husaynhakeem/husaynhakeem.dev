@@ -1,9 +1,9 @@
 import 'package:flutter_web/material.dart';
+import 'package:flutter_web/rendering.dart';
 import '../model/models.dart';
 import 'menu_item.dart';
 import 'menu_separator.dart';
 import 'dart:html' as html;
-import '../page/pages.dart';
 import '../navigation_service.dart';
 
 class Menu extends StatefulWidget {
@@ -12,8 +12,8 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-  final _menuItems = Map();
-  var _hoveredItemKey = "";
+  final _menuItems = <Section>[];
+  var _hoveredItemIndex = -1;
 
   @override
   void initState() {
@@ -22,43 +22,45 @@ class _MenuState extends State<Menu> {
   }
 
   void _initMenuItems() {
-    _menuItems.addAll({
-      "articles": Section(
+    _menuItems.addAll([
+      Section(
         label: "Articles",
         labelColor: Colors.white,
         hoverColor: Colors.green,
         onTap: _openArticlesPage,
-        onHover: (isHovered) => _onMenuItemHovered("articles", isHovered),
+        onHover: (index, isHovered) => _onMenuItemHovered(0, isHovered),
       ),
-      "github": Section(
+      Section(
         label: "Github",
         labelColor: Colors.white,
         hoverColor: Colors.green,
         onTap: () => _openLink("https://github.com/husaynhakeem"),
-        onHover: (isHovered) => _onMenuItemHovered("github", isHovered),
+        onHover: (index, isHovered) => _onMenuItemHovered(1, isHovered),
       ),
-      "twitter": Section(
+      Section(
         label: "Twitter",
         labelColor: Colors.white,
         hoverColor: Colors.green,
         onTap: () => _openLink("https://twitter.com/HusaynaHakeem"),
-        onHover: (isHovered) => _onMenuItemHovered("twitter", isHovered),
+        onHover: (index, isHovered) => _onMenuItemHovered(2, isHovered),
       ),
-      "linkedin": Section(
+      Section(
         label: "LinkedIn",
         labelColor: Colors.white,
         hoverColor: Colors.green,
         onTap: () => _openLink("https://www.linkedin.com/in/husaynhakeem/"),
-        onHover: (isHovered) => _onMenuItemHovered("linkedin", isHovered),
+        onHover: (index, isHovered) => _onMenuItemHovered(3, isHovered),
       ),
-    });
+    ]);
   }
 
-  void _onMenuItemHovered(String key, bool isHovered) {
+  void _onMenuItemHovered(int index, bool isHovered) {
     setState(() {
-      _menuItems[_hoveredItemKey]?.isHovered = false;
-      _menuItems[key]?.isHovered = isHovered;
-      _hoveredItemKey = key;
+      if (_hoveredItemIndex > 0) {
+        _menuItems[_hoveredItemIndex].isHovered = false;
+      }
+      _menuItems[index].isHovered = isHovered;
+      _hoveredItemIndex = index;
     });
   }
 
@@ -73,16 +75,14 @@ class _MenuState extends State<Menu> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        MenuItem(section: _menuItems["articles"]),
-        MenuSeparator(),
-        MenuItem(section: _menuItems["github"]),
-        MenuSeparator(),
-        MenuItem(section: _menuItems["twitter"]),
-        MenuSeparator(),
-        MenuItem(section: _menuItems["linkedin"]),
-      ],
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: _menuItems.length,
+      itemBuilder: (context, index) => MenuItem(
+        index: index,
+        section: _menuItems[index],
+      ),
+      separatorBuilder: (context, index) => MenuSeparator(),
     );
   }
 }
