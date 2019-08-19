@@ -1,5 +1,5 @@
 import 'package:flutter_web/material.dart';
-import 'page/pages.dart';
+import 'navigation_service.dart';
 
 class PortfolioApp extends StatelessWidget {
   @override
@@ -7,7 +7,9 @@ class PortfolioApp extends StatelessWidget {
     return MaterialApp(
       title: "Husayn Hakeem",
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      onGenerateRoute: NavigationService.generateRoute,
+      navigatorKey: NavigationService.navigationKey,
+      initialRoute: NavigationService.route_home,
     );
   }
 }

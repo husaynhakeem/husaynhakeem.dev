@@ -3,6 +3,8 @@ import '../model/models.dart';
 import 'menu_item.dart';
 import 'menu_separator.dart';
 import 'dart:html' as html;
+import '../page/pages.dart';
+import '../navigation_service.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -65,7 +67,8 @@ class _MenuState extends State<Menu> {
   }
 
   void _openArticlesPage() {
-
+    NavigationService.navigationKey.currentState
+        .pushNamed(NavigationService.route_articles);
   }
 
   @override
