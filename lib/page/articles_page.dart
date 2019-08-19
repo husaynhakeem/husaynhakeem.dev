@@ -8,16 +8,15 @@ class ArticlesPage extends StatelessWidget {
       backgroundColor: Colors.black87,
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Row(
+        child: Column(
           mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Header(),
-                Articles(),
-              ],
-            ),
+            Header(),
+            SizedBox(height: 32),
+            Expanded(
+              child: Articles(),
+            )
           ],
         ),
       ),
