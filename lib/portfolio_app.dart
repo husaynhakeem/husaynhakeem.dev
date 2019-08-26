@@ -6,6 +6,9 @@ class PortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Husayn Hakeem",
+      theme: ThemeData(
+        fontFamily: "MerriweatherSans"
+      ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: NavigationService.generateRoute,
       navigatorKey: NavigationService.navigationKey,

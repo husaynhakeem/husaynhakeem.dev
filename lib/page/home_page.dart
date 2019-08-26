@@ -9,21 +9,18 @@ class HomePage extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.black87,
           image: DecorationImage(
-            image: AssetImage("assetName"),
+            image: AssetImage("web/assets/images/home_background.jpg"),
             fit: BoxFit.cover,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(            
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Header(),
-              Expanded(
-                child: Menu(),
-              ),
-            ],
-          ),
+        child: Column(            
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Header(),
+            Expanded(
+              child: Menu(),
+            ),
+          ],
         ),
       ),
     );

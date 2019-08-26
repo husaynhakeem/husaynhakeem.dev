@@ -6,19 +6,16 @@ class ArticlesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black87,
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Header(),
-            SizedBox(height: 32),
-            Expanded(
-              child: Articles(),
-            )
-          ],
-        ),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Header(),
+          SizedBox(height: 32),
+          Expanded(
+            child: Articles(),
+          )
+        ],
       ),
     );
   }

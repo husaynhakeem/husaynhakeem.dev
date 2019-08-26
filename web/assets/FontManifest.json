@@ -1,0 +1,14 @@
+[
+    {
+      "family": "MerriweatherSans",
+      "fonts": [
+        {
+          "asset": "fonts/MerriweatherSans-Regular.ttf"
+        },
+        {
+          "asset": "fonts/MerriweatherSans-Bold.ttf",
+          "weight": 700
+        }
+      ]
+    }
+  ]

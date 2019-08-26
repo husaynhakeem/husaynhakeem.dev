@@ -17,7 +17,8 @@ class MenuItem extends StatelessWidget {
       child: Text(
         section.label,
         style: TextStyle(
-            color: section.isHovered ? section.hoverColor : section.labelColor),
+          color: section.isHovered ? section.hoverColor : section.labelColor,
+        ),
       ),
       onTap: section.onTap,
       onHover: (bool hover) => section.onHover(index, hover),
