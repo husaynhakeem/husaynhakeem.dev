@@ -13,7 +13,6 @@ class ArticlesPage extends StatelessWidget {
           Header(
             isClickable: true,
           ),
-          SizedBox(height: 32),
           Expanded(
             child: Articles(),
           )
