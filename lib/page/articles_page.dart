@@ -10,7 +10,9 @@ class ArticlesPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Header(),
+          Header(
+            isClickable: true,
+          ),
           SizedBox(height: 32),
           Expanded(
             child: Articles(),

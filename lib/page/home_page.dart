@@ -21,7 +21,9 @@ class HomePage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Header(),
+              Header(
+                isClickable: false,
+              ),
               Expanded(
                 child: Menu(),
               ),
