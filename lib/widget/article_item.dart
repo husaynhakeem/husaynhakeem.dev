@@ -23,6 +23,7 @@ class ArticleItem extends StatelessWidget {
       leading: _articlePublishDate(),
       title: _articleTitle(),
       subtitle: _articleSummary(),
+      trailing: _readArticle(),
       onTap: () => _openLink(article.url),
     );
   }
@@ -36,6 +37,7 @@ class ArticleItem extends StatelessWidget {
           contentPadding: EdgeInsets.all(0),
           title: _articleTitle(),
           subtitle: _articleSummary(),
+          trailing: _readArticle(),
           onTap: () => _openLink(article.url),
         ),
       ],
@@ -61,16 +63,32 @@ class ArticleItem extends StatelessWidget {
   }
 
   Widget _articleSummary() {
-    return Text(
-      article.summary,
-      style: TextStyle(
-        color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Text(
+        article.summary,
+        style: TextStyle(
+          color: Colors.white,
+          fontFamily: "MerriweatherSansLight",
+          letterSpacing: 1,
+          wordSpacing: 2,
+        ),
       ),
     );
   }
 
   String _formatDate(final DateTime date) {
-    return "${date.year}-${date.month}-${date.day}";
+    final year = date.year.toString();
+    final month = date.month <= 9 ? "0${date.month}" : date.month.toString();
+    final day = date.day <= 9 ? "0${date.day}" : date.day.toString();
+    return "$year-$month-$day";
+  }
+
+  Widget _readArticle() {
+    return Icon(
+        Icons.keyboard_arrow_right,
+        color: Colors.white,
+      );
   }
 
   void _openLink(final String link) {

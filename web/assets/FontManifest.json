@@ -1,14 +1,30 @@
 [
-    {
-      "family": "MerriweatherSans",
-      "fonts": [
-        {
-          "asset": "fonts/MerriweatherSans-Regular.ttf"
-        },
-        {
-          "asset": "fonts/MerriweatherSans-Bold.ttf",
-          "weight": 700
-        }
-      ]
-    }
-  ]
+  {
+    "family": "MerriweatherSans",
+    "fonts": [
+      {
+        "asset": "fonts/MerriweatherSans-Regular.ttf"
+      },
+      {
+        "asset": "fonts/MerriweatherSans-Bold.ttf",
+        "weight": 700
+      }
+    ]
+  },
+  {
+    "family": "MerriweatherSansLight",
+    "fonts": [
+      {
+        "asset": "fonts/MerriweatherSans-Light.ttf"
+      }
+    ]
+  },
+  {
+    "family": "MaterialIcons",
+    "fonts": [
+      {
+        "asset": "fonts/MaterialIcons-Regular.ttf"
+      }
+    ]
+  }
+]
