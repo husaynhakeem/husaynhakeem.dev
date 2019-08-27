@@ -1,8 +1,8 @@
 import 'package:flutter_web/material.dart';
 import 'package:flutter_web/rendering.dart';
+import '../utility/utilities.dart' as utils;
 import '../model/models.dart';
 import 'menu_item.dart';
-import 'menu_separator.dart';
 import 'dart:html' as html;
 import '../navigation_service.dart';
 
@@ -24,29 +24,29 @@ class _MenuState extends State<Menu> {
   void _initMenuItems() {
     _menuItems.addAll([
       Section(
-        label: "Articles",
-        labelColor: Colors.white,
+        action: "read",
+        label: "Blog",
         hoverColor: Colors.green,
         onTap: _openArticlesPage,
         onHover: (index, isHovered) => _onMenuItemHovered(0, isHovered),
       ),
       Section(
+        action: "fork",
         label: "Github",
-        labelColor: Colors.white,
         hoverColor: Colors.green,
         onTap: () => _openLink("https://github.com/husaynhakeem"),
         onHover: (index, isHovered) => _onMenuItemHovered(1, isHovered),
       ),
       Section(
+        action: "mention",
         label: "Twitter",
-        labelColor: Colors.white,
         hoverColor: Colors.green,
         onTap: () => _openLink("https://twitter.com/HusaynaHakeem"),
         onHover: (index, isHovered) => _onMenuItemHovered(2, isHovered),
       ),
       Section(
+        action: "connect",
         label: "LinkedIn",
-        labelColor: Colors.white,
         hoverColor: Colors.green,
         onTap: () => _openLink("https://www.linkedin.com/in/husaynhakeem/"),
         onHover: (index, isHovered) => _onMenuItemHovered(3, isHovered),
@@ -75,14 +75,32 @@ class _MenuState extends State<Menu> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      scrollDirection: Axis.horizontal,
-      itemCount: _menuItems.length,
-      itemBuilder: (context, index) => MenuItem(
-        index: index,
-        section: _menuItems[index],
+    final isSmallScreen = utils.isSmallScreen(context);
+    return Padding(
+      padding: const EdgeInsets.only(right: 32, bottom: 32, left: 32),
+      child: ListView.separated(
+
+        scrollDirection: _scrollDirection(isSmallScreen),
+        itemCount: _menuItems.length,
+        itemBuilder: (context, index) => MenuItem(
+          index: index,
+          section: _menuItems[index],
+        ),
+        separatorBuilder: (context, index) => _separator(isSmallScreen),
       ),
-      separatorBuilder: (context, index) => MenuSeparator(),
+    );
+  }
+
+  Axis _scrollDirection(final bool isSmallScreen) {
+    return isSmallScreen ? Axis.vertical : Axis.horizontal;
+  }
+
+  Widget _separator(final bool isSmallScreen) {
+    final double width = isSmallScreen ? 0 : 20;
+    final double height = isSmallScreen ? 20 : 0;
+    return SizedBox(
+      width: width,
+      height: height,
     );
   }
 }

@@ -13,15 +13,41 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Text(
-        section.label,
-        style: TextStyle(
-          color: section.isHovered ? section.hoverColor : section.labelColor,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        InkWell(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _action(),
+              _label(),
+            ],
+          ),
+          onTap: section.onTap,
+          onHover: (bool hover) => section.onHover(index, hover),
         ),
+      ],
+    );
+  }
+
+  Widget _action() {
+    return Text(
+      "${section.action} ",
+      style: TextStyle(
+        color: section.isHovered ? section.hoverColor : Colors.white30,
       ),
-      onTap: section.onTap,
-      onHover: (bool hover) => section.onHover(index, hover),
+    );
+  }
+
+  Widget _label() {
+    return Text(
+      section.label,
+      style: TextStyle(
+        color: section.isHovered ? section.hoverColor : Colors.white,
+      ),
     );
   }
 }

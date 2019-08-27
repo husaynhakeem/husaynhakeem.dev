@@ -8,7 +8,7 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     final isSmallScreen = utils.isSmallScreen(context);
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(32),
       child: Text(
         "HUSAYN ABDUL HAKEEM",
         style: TextStyle(
