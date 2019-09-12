@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'navigation_service.dart';
+import 'utility/utilities.dart';
 
 class PortfolioApp extends StatelessWidget {
   @override
@@ -13,6 +14,10 @@ class PortfolioApp extends StatelessWidget {
       onGenerateRoute: NavigationService.generateRoute,
       navigatorKey: NavigationService.navigationKey,
       initialRoute: NavigationService.route_home,
+      builder: (context, child) => ScrollConfiguration(
+        behavior: CustomScrollBehavior(),
+        child: child,
+      ),
     );
   }
 }
