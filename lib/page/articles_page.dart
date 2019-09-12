@@ -1,7 +1,19 @@
 import 'package:flutter_web/material.dart';
 import '../widget/widgets.dart';
+import 'dart:html' as html;
 
-class ArticlesPage extends StatelessWidget {
+class ArticlesPage extends StatefulWidget {
+  @override
+  _ArticlesPageState createState() => _ArticlesPageState();
+}
+
+class _ArticlesPageState extends State<ArticlesPage> {
+@override
+  void initState() {
+    super.initState();
+    html.window.history.pushState(null, "Articles", "/articles");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

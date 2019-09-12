@@ -1,7 +1,19 @@
 import 'package:flutter_web/material.dart';
 import '../widget/widgets.dart';
+import 'dart:html' as html;
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+@override
+  void initState() {
+    super.initState();
+    html.window.history.pushState(null, "Home", "/");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

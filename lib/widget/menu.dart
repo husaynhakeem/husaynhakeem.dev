@@ -85,8 +85,7 @@ class _MenuState extends State<Menu> {
   }
 
   void _openArticlesPage() {
-    NavigationService.navigationKey.currentState
-        .pushNamed(NavigationService.route_articles);
+    NavigationService.openArticlesPage();
     _unselectCurrentlyHoveredMenuItem();
   }
 

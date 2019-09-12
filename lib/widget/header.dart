@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import '../utility/utilities.dart' as utils;
+import '../navigation_service.dart';
 
 class Header extends StatelessWidget {
   Header({Key key, @required this.isClickable}) : super(key: key);
@@ -28,7 +29,7 @@ class Header extends StatelessWidget {
 
   void _onTap(BuildContext context) {
     if (isClickable) {
-      Navigator.of(context).pop();
+      NavigationService.openHomePage();
     }
   }
 

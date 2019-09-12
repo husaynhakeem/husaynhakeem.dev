@@ -19,4 +19,12 @@ class NavigationService {
         );
     }
   }
+
+  static openHomePage() {
+    navigationKey.currentState.pushNamed(route_home);
+  }
+
+  static openArticlesPage() {
+    navigationKey.currentState.pushNamed(route_articles);
+  }
 }
