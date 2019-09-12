@@ -45,7 +45,7 @@ class _MenuState extends State<Menu> {
         onHover: (index, isHovered) => _onMenuItemHovered(2, isHovered),
       ),
       Section(
-        action: "connect",
+        action: "network",
         label: "LinkedIn",
         hoverColor: Colors.blue,
         onTap: () => _openLink("https://www.linkedin.com/in/husaynhakeem/"),
@@ -54,23 +54,40 @@ class _MenuState extends State<Menu> {
     ]);
   }
 
-  void _onMenuItemHovered(int index, bool isHovered) {
+  void _onMenuItemHovered(final int index, final bool isHovered) {
     setState(() {
-      if (_hoveredItemIndex > 0) {
+      // Deselect currently hovered item
+      if (_isValidMenuItemIndex(_hoveredItemIndex)) {
         _menuItems[_hoveredItemIndex].isHovered = false;
       }
-      _menuItems[index].isHovered = isHovered;
+
+      // Select menu item at position [index]
+      if (_isValidMenuItemIndex(index)) {
+        _menuItems[index].isHovered = isHovered;
+      }
+
+      // Update hovered index
       _hoveredItemIndex = index;
     });
   }
 
+  bool _isValidMenuItemIndex(final int index) {
+    return index >= 0 && index < _menuItems.length;
+  }
+
+  void _unselectCurrentlyHoveredMenuItem() {
+    _onMenuItemHovered(-1, true);
+  }
+
   void _openLink(final String link) {
     html.window.open(link, link);
+    _unselectCurrentlyHoveredMenuItem();
   }
 
   void _openArticlesPage() {
     NavigationService.navigationKey.currentState
         .pushNamed(NavigationService.route_articles);
+    _unselectCurrentlyHoveredMenuItem();
   }
 
   @override
@@ -79,7 +96,6 @@ class _MenuState extends State<Menu> {
     return Padding(
       padding: const EdgeInsets.only(right: 32, bottom: 32, left: 32),
       child: ListView.separated(
-
         scrollDirection: _scrollDirection(isSmallScreen),
         itemCount: _menuItems.length,
         itemBuilder: (context, index) => MenuItem(
