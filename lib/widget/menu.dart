@@ -1,5 +1,5 @@
-import 'package:flutter_web/material.dart';
-import 'package:flutter_web/rendering.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import '../utility/utilities.dart' as utils;
 import '../model/models.dart';
 import 'menu_item.dart';

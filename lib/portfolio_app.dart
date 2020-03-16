@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'navigation_service.dart';
 import 'utility/utilities.dart';
 

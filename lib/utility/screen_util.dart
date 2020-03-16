@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 bool isSmallScreen(BuildContext context) {
   return MediaQuery.of(context).size.width <= 600;
