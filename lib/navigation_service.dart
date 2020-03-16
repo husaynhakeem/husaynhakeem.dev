@@ -12,14 +12,17 @@ class NavigationService {
     switch (settings.name) {
       case route_home:
         return MaterialPageRoute(
+          settings: settings,
           builder: (context) => HomePage(),
         );
       case route_articles:
         return MaterialPageRoute(
+          settings: settings,
           builder: (context) => ArticlesPage(),
         );
       default:
         return MaterialPageRoute(
+          settings: settings,
           builder: (context) => HomePage(),
         );
     }

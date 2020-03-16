@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+
 import '../widget/widgets.dart';
-import 'dart:html' as html;
 
 class ArticlesPage extends StatefulWidget {
   @override
@@ -8,12 +8,6 @@ class ArticlesPage extends StatefulWidget {
 }
 
 class _ArticlesPageState extends State<ArticlesPage> {
-@override
-  void initState() {
-    super.initState();
-    html.window.history.pushState(null, "Articles", "/articles");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
