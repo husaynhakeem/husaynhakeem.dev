@@ -11,7 +11,7 @@ class _HomePageState extends State<HomePage> {
 @override
   void initState() {
     super.initState();
-    html.window.history.pushState(null, "Home", "/");
+    html.window.history.pushState(null, 'Home', '/');
   }
 
   @override
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("images/home_background.jpg"),
+                image: AssetImage('images/home_background.jpg'),
                 fit: BoxFit.cover,
               ),
             ),

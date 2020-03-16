@@ -6,9 +6,9 @@ class PortfolioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Husayn Hakeem",
+      title: 'Husayn Hakeem',
       theme: ThemeData(
-        fontFamily: "MerriweatherSans"
+        fontFamily: 'MerriweatherSans'
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: NavigationService.generateRoute,

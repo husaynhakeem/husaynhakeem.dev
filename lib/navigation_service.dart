@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'page/pages.dart';
 
 class NavigationService {
-  static const String route_home = "/";
-  static const String route_articles = "/articles";
+  static const String route_home = '/';
+  static const String route_articles = '/articles';
   static final GlobalKey<NavigatorState> navigationKey =
       GlobalKey<NavigatorState>();
 
@@ -17,14 +18,18 @@ class NavigationService {
         return MaterialPageRoute(
           builder: (context) => ArticlesPage(),
         );
+      default:
+        return MaterialPageRoute(
+          builder: (context) => HomePage(),
+        );
     }
   }
 
-  static openHomePage() {
+  static void openHomePage() {
     navigationKey.currentState.pushNamed(route_home);
   }
 
-  static openArticlesPage() {
+  static void openArticlesPage() {
     navigationKey.currentState.pushNamed(route_articles);
   }
 }

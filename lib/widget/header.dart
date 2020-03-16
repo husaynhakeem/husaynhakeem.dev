@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(32),
         child: Text(
-          "HUSAYN ABDUL HAKEEM",
+          'HUSAYN ABDUL HAKEEM',
           style: TextStyle(
             fontSize: 32,
             color: Colors.white,

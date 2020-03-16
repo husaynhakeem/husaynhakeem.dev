@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
-import '../model/models.dart';
 import 'dart:html' as html;
+
+import 'package:flutter/material.dart';
+
+import '../model/models.dart';
+import '../utility/utilities.dart' as utils;
 
 class ArticleItem extends StatelessWidget {
   final Article article;
@@ -9,7 +12,7 @@ class ArticleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isSmallScreen = MediaQuery.of(context).size.width <= 600;
+    final isSmallScreen = utils.isSmallScreen(context);
     if (isSmallScreen) {
       return _smallArticleTile();
     } else {
@@ -69,7 +72,7 @@ class ArticleItem extends StatelessWidget {
         article.summary,
         style: TextStyle(
           color: Colors.white,
-          fontFamily: "MerriweatherSansLight",
+          fontFamily: 'MerriweatherSansLight',
           letterSpacing: 1,
           wordSpacing: 2,
         ),
@@ -79,16 +82,16 @@ class ArticleItem extends StatelessWidget {
 
   String _formatDate(final DateTime date) {
     final year = date.year.toString();
-    final month = date.month <= 9 ? "0${date.month}" : date.month.toString();
-    final day = date.day <= 9 ? "0${date.day}" : date.day.toString();
-    return "$year-$month-$day";
+    final month = date.month <= 9 ? '0${date.month}' : date.month.toString();
+    final day = date.day <= 9 ? '0${date.day}' : date.day.toString();
+    return '$year-$month-$day';
   }
 
   Widget _readArticle() {
     return Icon(
-        Icons.keyboard_arrow_right,
-        color: Colors.white,
-      );
+      Icons.keyboard_arrow_right,
+      color: Colors.white,
+    );
   }
 
   void _openLink(final String link) {

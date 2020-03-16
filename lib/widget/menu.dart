@@ -24,31 +24,31 @@ class _MenuState extends State<Menu> {
   void _initMenuItems() {
     _menuItems.addAll([
       Section(
-        action: "read",
-        label: "Blog",
+        action: 'read',
+        label: 'Blog',
         hoverColor: Colors.blue,
         onTap: _openArticlesPage,
         onHover: (index, isHovered) => _onMenuItemHovered(0, isHovered),
       ),
       Section(
-        action: "fork",
-        label: "Github",
+        action: 'fork',
+        label: 'Github',
         hoverColor: Colors.blue,
-        onTap: () => _openLink("https://github.com/husaynhakeem"),
+        onTap: () => _openLink('https://github.com/husaynhakeem'),
         onHover: (index, isHovered) => _onMenuItemHovered(1, isHovered),
       ),
       Section(
-        action: "mention",
-        label: "Twitter",
+        action: 'mention',
+        label: 'Twitter',
         hoverColor: Colors.blue,
-        onTap: () => _openLink("https://twitter.com/HusaynaHakeem"),
+        onTap: () => _openLink('https://twitter.com/HusaynaHakeem'),
         onHover: (index, isHovered) => _onMenuItemHovered(2, isHovered),
       ),
       Section(
-        action: "network",
-        label: "LinkedIn",
+        action: 'network',
+        label: 'LinkedIn',
         hoverColor: Colors.blue,
-        onTap: () => _openLink("https://www.linkedin.com/in/husaynhakeem/"),
+        onTap: () => _openLink('https://www.linkedin.com/in/husaynhakeem/'),
         onHover: (index, isHovered) => _onMenuItemHovered(3, isHovered),
       ),
     ]);

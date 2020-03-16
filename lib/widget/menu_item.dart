@@ -35,7 +35,7 @@ class MenuItem extends StatelessWidget {
 
   Widget _action() {
     return Text(
-      "${section.action} ",
+      '${section.action} ',
       style: TextStyle(
         color: section.isHovered ? section.hoverColor : Colors.white30,
       ),
