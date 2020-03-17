@@ -1,0 +1,1 @@
+enum ArticlesEvent { Load }
