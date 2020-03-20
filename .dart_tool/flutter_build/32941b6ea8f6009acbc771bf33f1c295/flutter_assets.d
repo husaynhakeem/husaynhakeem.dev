@@ -1,0 +1,1 @@
+ build/web/assets/fonts/MaterialIcons-Regular.ttf build/web/assets/AssetManifest.json build/web/assets/FontManifest.json build/web/assets/LICENSE:  /Users/husaynhakeem/Desktop/dev/husaynhakeem.dev/pubspec.yaml /Users/husaynhakeem/Documents/flutter/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.ttf
